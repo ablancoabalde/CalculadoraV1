@@ -23,6 +23,11 @@ public class Conexion {
     InputStream is;
     OutputStream os;
 
+    /**
+     * Constructor que abre la conexión y se pone a la escucha de con una
+     * direccion y puerto por defecto y llama a la clase calculo que contiene el
+     * metodo calculo
+     */
     public Conexion() {
 
         try {
@@ -43,6 +48,7 @@ public class Conexion {
             is = newSocket.getInputStream();
             os = newSocket.getOutputStream();
 
+            // Se hace el bucle do while para que el servidor quede a la escucha de nuevas operaciones y no cierre tras la primera operación
             do {
                 mensaje = new byte[500];
                 is.read(mensaje);
